@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import * as yup from "yup";
-// import { connect } from "react-redux";
-// import { loginUser } from "../store/actions";
-// import { LocateBtn, LoginBodyStyle, LoginBtn } from "../styles/LightModeStyles";
 
 function SignIn(props) {
-  // const { loginUser, error } = props;
-  // const { push } = useHistory();
   //manage state for the form inputs
   const [formState, setFormSate] = useState({
     username: "",
@@ -83,19 +78,11 @@ function SignIn(props) {
   //onSubmit function
   const formSubmit = (event) => {
     event.preventDefault();
-    // loginUser(
-    //   {
-    //     username: formState.username.trim(),
-    //     password: formState.password,
-    //   },
-    //   push
-    // );
   };
 
   return (
     <div>
       <p className="loginTitle">Log In</p>
-      {/* <p>{error}</p> */}
       <form onSubmit={formSubmit}>
         <div className="loginForm">
           <label htmlFor="username">
@@ -142,9 +129,5 @@ function SignIn(props) {
     </div>
   );
 }
-const mapStateToProps = (state) => {
-  return {
-    error: state.error,
-  };
-};
+
 export default SignIn;
