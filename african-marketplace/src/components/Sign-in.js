@@ -71,7 +71,7 @@ function SignIn(props) {
       //we can check the process has been completed
       setButtonDisabled(!valid);
     });
-  }, [formState]);
+  }, [formSchema, formState]);
   //do something every time formState changes
 
   //onSubmit function
