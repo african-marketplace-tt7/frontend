@@ -12,12 +12,17 @@ const initialStateText = {
   username: ""
 }
 const initialStateSelect = {
-  preferredCurrency: "",
-  primaryLanguage: "",
+  preferredCurrency: 0,
+  primaryLanguage: 0,
 }
 
+const currencies = ['DZD', 'AOA', 'BWP',];
+
+const languages = ['Bangi Me', 'Bayot','Dompo','Ega','Gomba',]
+
+
 const SignupForm = () => {
-  const [form, setForm] = useState({ ...initialStateText, ...initialStateSelect });
+  const [form, setForm] = useState({...initialStateText, ...initialStateSelect});
   console.log(form);
 
   const text = [];
@@ -52,7 +57,7 @@ const SignupForm = () => {
         return <TextInput name={i} key={i} value={form[i]} onChange={testOnChangeHandler} />
       })}
       {select.map(i => {
-        return <SelectInput name={i} key={i} value={form[i]} onChange={selectOnChangeHandler} />
+        return <SelectInput name={i} key={i} value={form[i]} onChange={selectOnChangeHandler} languages={languages} currencies={currencies} />
       })}
     </div>
   )
