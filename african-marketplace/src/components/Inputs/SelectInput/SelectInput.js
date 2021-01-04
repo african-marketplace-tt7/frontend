@@ -1,7 +1,7 @@
 import React from 'react';
 import Option from './Option/Option';
 
-const SelectInput = ({ name, languages, currencies, value, onChange }) => {
+const SelectInput = ({ name, languages, currencies, value, onChange, displayName}) => {
 
   let options = [];
 
@@ -17,7 +17,7 @@ const SelectInput = ({ name, languages, currencies, value, onChange }) => {
 
   return (
     <div>
-      <label name={name}> {name}:
+      <label name={name}> {displayName}:
         <select type="select" name={name} value={value} onChange={onChange}>
           <option value='0'>---Please select your preference---</option>
           {optionsToRender}
