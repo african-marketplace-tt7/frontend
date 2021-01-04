@@ -1,26 +1,24 @@
 import React from 'react';
 import Option from './Option/Option';
 
-const SelectInput = ({name, languages, currencies, value}) => {
-  console.log(value) //=> null
-
+const SelectInput = ({ name, languages, currencies, value, onChange }) => {
 
   let options = [];
 
-  if(name === 'preferredCurrency'){
+  if (name === 'preferredCurrency') {
     options = currencies;
-  } else if (name === 'primaryLanguage'){
+  } else if (name === 'primaryLanguage') {
     options = languages;
   }
 
   let optionsToRender = options.map(option => {
-    return <Option details={option} value={value}/>
+    return <Option details={option} />
   })
 
   return (
     <div>
       <label name={name}> {name}:
-        <select type="select" value={value}>
+        <select type="select" name={name} value={value} onChange={onChange}>
           <option value='0'>---Please select your preference---</option>
           {optionsToRender}
         </select>

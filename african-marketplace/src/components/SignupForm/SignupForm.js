@@ -18,11 +18,11 @@ const initialStateSelect = {
 
 const currencies = ['DZD', 'AOA', 'BWP',];
 
-const languages = ['Bangi Me', 'Bayot','Dompo','Ega','Gomba',]
+const languages = ['Bangi Me', 'Bayot', 'Dompo', 'Ega', 'Gomba',]
 
 
 const SignupForm = () => {
-  const [form, setForm] = useState({...initialStateText, ...initialStateSelect});
+  const [form, setForm] = useState({ ...initialStateText, ...initialStateSelect });
   console.log(form);
 
   const text = [];
@@ -37,28 +37,32 @@ const SignupForm = () => {
   }
 
   const testOnChangeHandler = (e) => {
-    console.log(e);
     setForm({
       ...form,
       [e.target.name]: e.target.value
     })
   }
   const selectOnChangeHandler = (e) => {
-    // console.log(e);
-    // setForm({
-    //   ...form,
-    //   [e.target.name]: e.target.value
-    // })
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value
+    })
+  }
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
   }
 
   return (
     <div>
-      {text.map(i => {
-        return <TextInput name={i} key={i} value={form[i]} onChange={testOnChangeHandler} />
-      })}
-      {select.map(i => {
-        return <SelectInput name={i} key={i} value={form[i]} onChange={selectOnChangeHandler} languages={languages} currencies={currencies} />
-      })}
+      <form onSubmit={onSubmitHandler}>
+        {text.map(i => {
+          return <TextInput name={i} key={i} value={form[i]} onChange={testOnChangeHandler} />
+        })}
+        {select.map(i => {
+          return <SelectInput name={i} key={i} value={form[i]} onChange={selectOnChangeHandler} languages={languages} currencies={currencies} />
+        })}
+        <button>Create Your Account!</button>
+      </form>
     </div>
   )
 }
