@@ -60,7 +60,6 @@ function SignIn(props) {
   const formSchema = yup.object().shape({
     username: yup.string().required("Username is required"),
     password: yup.string().required("Password is required"),
-    // accountType: yup.string().oneOf(["diner", "operator"]),
   });
 
   useEffect(() => {
