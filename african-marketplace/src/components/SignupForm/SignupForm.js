@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 
 import TextInput from '../Inputs/TextInput/TextInput';
 import SelectInput from '../Inputs/SelectInput/SelectInput';
@@ -116,6 +117,7 @@ const SignupForm = () => {
 
   return (
     <StyledSignupForm>
+      <h2>Create Your Account</h2>
       <form className='SignupForm' onSubmit={handleSubmit(onSubmitHandler)}>
         <div className='textInputClass'>
           {text.map(i => {
@@ -130,6 +132,12 @@ const SignupForm = () => {
         </div>
         <button>Create Your Account!</button>
       </form>
+      <p>
+        <Link className='' to='/'>Home Page</Link>
+      </p>
+      <p>
+        <Link className='' to='/sign-in'>Already Have an Account?</Link>
+      </p>
     </StyledSignupForm>
   )
 }
