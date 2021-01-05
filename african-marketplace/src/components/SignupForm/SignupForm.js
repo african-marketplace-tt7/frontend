@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 
 import TextInput from '../Inputs/TextInput/TextInput';
 import SelectInput from '../Inputs/SelectInput/SelectInput';
+import StyledSignupForm from './StyledSignupForm';
 
 const initialStateText = {
   city: "",
@@ -114,17 +115,22 @@ const SignupForm = () => {
   // }
 
   return (
-    <div>
+    <StyledSignupForm>
       <form className='SignupForm' onSubmit={handleSubmit(onSubmitHandler)}>
-        {text.map(i => {
-          return <TextInput name={i} key={i} value={form[i]} onChange={textOnChangeHandler} displayName={displayName[i]} register={register} requirements={validation[i]} errorMessage={errors} />
-        })}
-        {select.map(i => {
-          return <SelectInput name={i} key={i} value={form[i]} onChange={selectOnChangeHandler} languages={languages} currencies={currencies} displayName={displayName[i]} register={register} requirements={validation[i]} />
-        })}
+        <div className='textInputClass'>
+          {text.map(i => {
+            return <TextInput name={i} key={i} value={form[i]} onChange={textOnChangeHandler} displayName={displayName[i]} register={register} requirements={validation[i]} errorMessage={errors} />
+          })}
+        </div>
+
+        <div className='selectInputClass'>
+          {select.map(i => {
+            return <SelectInput name={i} key={i} value={form[i]} onChange={selectOnChangeHandler} languages={languages} currencies={currencies} displayName={displayName[i]} register={register} requirements={validation[i]} />
+          })}
+        </div>
         <button>Create Your Account!</button>
       </form>
-    </div>
+    </StyledSignupForm>
   )
 }
 
