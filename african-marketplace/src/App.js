@@ -7,6 +7,8 @@ import siteTheme from "./components/styledComponents/SiteTheme";
 
 import Dashboard from "./components/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
+import SignIn from "./components/Sign-in";
+import SignupForm from "./components/SignupForm/SignupForm";
 
 function App() {
 	const [loggedIn, setIsLoggedIn] = useState(false);
@@ -16,10 +18,13 @@ function App() {
 			<Switch>
 				{/* App Front End */}
 				<div id="page-wrapper">
-					<Route exact path="/dashboard" component={Dashboard} />
+					<PrivateRoute exact path="/dashboard" component={Dashboard} />
 				</div>
 
-				<ThemeProvider theme={siteTheme}>{/*<Unit2Stuff/>*/}</ThemeProvider>
+				<ThemeProvider theme={siteTheme}>
+					<Route exact path="/login" component={SignIn} />
+					<Route exact path="/signup" component={SignupForm} />
+				</ThemeProvider>
 			</Switch>
 		</div>
 	);
