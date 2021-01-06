@@ -1,0 +1,25 @@
+/* sign in page */
+.signIn {
+  background: url("../src/assets/banner.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  text-align: center;
+  padding-top: 25%;
+  color: #fdfdfd;
+  font-weight: bold;
+}
+.loginForm {
+  margin: 2%;
+}
+.signIn button {
+  padding: 0.5% 2%;
+  font-weight: bold;
+  border: none;
+  background-color: #eb4933;
+  color: #fdfdfd;
+}
+
+.signIn a {
+  color: #fdfdfd;
+}
