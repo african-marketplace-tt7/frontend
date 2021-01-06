@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import * as yup from "yup";
+import "../SignIn.css";
 
 function SignIn(props) {
   //manage state for the form inputs
