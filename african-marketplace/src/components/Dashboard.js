@@ -10,7 +10,7 @@ import { fetchCurrentUser } from "../store/actions/currentUserActions";
 import HeaderNav from "./HeaderNav";
 import { Button } from "./Button";
 
-const HomePage = (props) => {
+const Dashboard = (props) => {
 	return (
 		<div>
 			<HeaderNav />
@@ -37,4 +37,4 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
 	fetchCurrentUser,
-})(HomePage);
+})(Dashboard);
