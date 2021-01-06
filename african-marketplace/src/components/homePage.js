@@ -1,14 +1,46 @@
-import SignIn from "./Sign-in";
-import { Link, useHistory } from "react-router-dom";
+import '../assets/css/main.css';
+import React from 'react'
+import {connect} from 'react-redux'
+import {NavLink} from 'react-router-dom'
 
-function Homepage(props) {
+//Store
+import {fetchCurrentUser} from '../store/actions/currentUserActions'
+
+// Components
+import HeaderNav from './HeaderNav'
+import {Button} from "./Button"
+
+const HomePage = (props) => {
+
   return (
     <div>
-      <h1>homepage</h1>
-      <Link to="/sign-in">Sign In</Link>
-      <Link to="/signup">Sign Up</Link>
+      <HeaderNav/>
+      <h1> this is app</h1>
+      
+
+
+      {/* <Button title="Click me" type="primary" onClick={() => {
+      console.log("Click")
+      }} size="large"/>
+      <Button title="Click me" type="primary" onClick={() => {
+      console.log("Click")
+      }}/>
+      <Button title="Click me" type="primary" onClick={() => {
+      console.log("Click")
+      }} size="small"/> */}
+
+
     </div>
   );
 }
 
-export default Homepage;
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.combineReducers
+  }
+}
+
+export default connect(mapStateToProps, {
+  fetchCurrentUser
+})(HomePage);
+
