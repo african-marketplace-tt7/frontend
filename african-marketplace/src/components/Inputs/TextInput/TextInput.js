@@ -5,7 +5,7 @@ const inputType = name === 'email' ? 'email' : 'text'
 
   return (
     <label htmlFor={name}> {displayName}:
-      <input type={inputType} id={name} name={name} value={value} onChange={onChange} ref={register(requirements)}/>
+      <input type={inputType} id={name} name={name} value={value} onChange={onChange} ref={register(requirements)} placeholder={displayName}/>
       {errorMessage[name] && <p>{requirements.errorMessage}</p>}
     </label>
   )

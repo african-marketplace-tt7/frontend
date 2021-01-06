@@ -106,14 +106,9 @@ const SignupForm = () => {
   }
 
   const onSubmitHandler = (data) => {
-    alert(JSON.stringify(data));
-    console.log(JSON.stringify(data));
-
+    setForm({ ...initialStateText, ...initialStateSelect });
+    alert(`Thank you for creating an account with us, ${data.firstName}`)
   }
-  // const onSubmitHandler = (e) => {
-  //   e.preventDefault();
-  //   setForm({ ...initialStateText, ...initialStateSelect });
-  // }
 
   return (
     <StyledSignupForm>
@@ -136,7 +131,7 @@ const SignupForm = () => {
         <Link className='' to='/'>Home Page</Link>
       </p>
       <p>
-        <Link className='' to='/sign-in'>Already Have an Account?</Link>
+        <Link className='' to='/sign-in'>Already Have an Account? (Sign In)</Link>
       </p>
     </StyledSignupForm>
   )

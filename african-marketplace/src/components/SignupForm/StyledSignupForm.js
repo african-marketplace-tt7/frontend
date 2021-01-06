@@ -2,9 +2,13 @@
 import styled from 'styled-components';
 
 const StyledSignupForm = styled.div`
-  color: blue;
+  color: rgb(17,63,114);;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F5DE76;
+  height: 100vh;
   *{
     // border: 1px solid gold;
   }
@@ -15,13 +19,14 @@ const StyledSignupForm = styled.div`
     justify-content: center;
     align-items: center;
     button{
-      width: 15%;
+      width: 50%;
       margin: 10px;
       padding: 5px;
       outline: none;
       border: none;
       border-radius: 5px;
-      background-color: tomato;
+      color: rgb(209,205,193);
+      background-color: rgb(17,63,114);
       border: 2px solid transparent; //keeps the box from resizing on hover.
     }
     button:hover{
@@ -40,11 +45,15 @@ const StyledSignupForm = styled.div`
     label{
       display: flex;
       align-items: center;
+      margin: 0;
+      color: rgb(17,63,114);
       input{
         // height: 3px;
       }
       p{
-        color: red;
+        color: tomato;
+        margin: 0;
+        font-weight: bold;
       }
     }
   }
