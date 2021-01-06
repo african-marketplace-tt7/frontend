@@ -6,6 +6,7 @@ function Homepage(props) {
     <div>
       <h1>homepage</h1>
       <Link to="/sign-in">Sign In</Link>
+      <Link to="/signup">Sign Up</Link>
     </div>
   );
 }

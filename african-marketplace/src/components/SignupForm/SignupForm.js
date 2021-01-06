@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+
 import TextInput from '../Inputs/TextInput/TextInput';
 import SelectInput from '../Inputs/SelectInput/SelectInput';
+import StyledSignupForm from './StyledSignupForm';
 
 const initialStateText = {
   city: "",
@@ -26,6 +30,46 @@ const displayName = {
   preferredCurrency: 'Preferred Currency',
   primaryLanguage: 'Preferred Currency',
 }
+const validation = {
+  city: {
+    required: true,
+    errorMessage: 'This field is required',
+  },
+  country: {
+    required: true,
+    errorMessage: 'This field is required',
+  },
+  email: {
+    required: true,
+    errorMessage: 'This field is required',
+  },
+  firstName: {
+    required: true,
+    errorMessage: 'This field is required',
+  },
+  lastName: {
+    required: true,
+    errorMessage: 'This field is required',
+  },
+  password: {
+    required: true,
+    minLength: 8,
+    errorMessage: 'This field is required and must the minimum length of 8 characters',
+  },
+  username: {
+    required: true,
+    minLength: 4,
+    errorMessage: 'This field is required and must the minimum length of 4 characters',
+  },
+  preferredCurrency: {
+    required: true,
+    errorMessage: 'This field is required',
+  },
+  primaryLanguage: {
+    required: true,
+    errorMessage: 'This field is required',
+  },
+}
 
 const currencies = ['AOA', 'SHP', 'XOF', 'BWP', 'XOF', 'BIF', 'CVE', 'XAF', 'XAF', 'XAF', 'KMF', 'CDF', 'XAF', 'XOF', 'DJF', 'EGP', 'XAF', 'ERN', 'SZL', 'ETB', 'XAF', 'GMD', 'GHS', 'GNF', 'XOF', 'KES', 'LSL', 'LRD', 'LYD', 'MGA', 'MWK', 'XOF', 'MRU', 'MUR', 'EUR', 'MAD', 'MZN', 'NAD', 'XOF', 'NGN', 'EUR', 'RWF', 'SHP', 'STN', 'XOF', 'SCR', 'SLL', 'SOS', 'ZAR', 'SSP', 'SDG', 'TZS', 'XOF', 'GBP', 'TND', 'UGX', 'ZMW', 'USD'];
 
@@ -34,9 +78,9 @@ const languages = ['Bangi Me', 'Bayot', 'Dompo', 'Ega', 'Gomba', 'Gumuz', 'Hadza
 
 const SignupForm = () => {
   const [form, setForm] = useState({ ...initialStateText, ...initialStateSelect });
-  console.log(form);
+  const { register, handleSubmit, errors } = useForm();
 
-  //separate out inputs based on type 'text' or 'select'
+  // separate out inputs based on type 'text' or 'select'
   const text = [];
   const select = [];
   for (let i in form) {
@@ -61,23 +105,35 @@ const SignupForm = () => {
     })
   }
 
-  const onSubmitHandler = (e) => {
-    e.preventDefault();
+  const onSubmitHandler = (data) => {
     setForm({ ...initialStateText, ...initialStateSelect });
+    alert(`Thank you for creating an account with us, ${data.firstName}`)
   }
 
   return (
-    <div>
-      <form onSubmit={onSubmitHandler}>
-        {text.map(i => {
-          return <TextInput name={i} key={i} value={form[i]} onChange={textOnChangeHandler} displayName={displayName[i]}/>
-        })}
-        {select.map(i => {
-          return <SelectInput name={i} key={i} value={form[i]} onChange={selectOnChangeHandler} languages={languages} currencies={currencies} displayName={displayName[i]}/>
-        })}
+    <StyledSignupForm>
+      <h2>Create Your Account</h2>
+      <form className='SignupForm' onSubmit={handleSubmit(onSubmitHandler)}>
+        <div className='textInputClass'>
+          {text.map(i => {
+            return <TextInput name={i} key={i} value={form[i]} onChange={textOnChangeHandler} displayName={displayName[i]} register={register} requirements={validation[i]} errorMessage={errors} />
+          })}
+        </div>
+
+        <div className='selectInputClass'>
+          {select.map(i => {
+            return <SelectInput name={i} key={i} value={form[i]} onChange={selectOnChangeHandler} languages={languages} currencies={currencies} displayName={displayName[i]} register={register} requirements={validation[i]} />
+          })}
+        </div>
         <button>Create Your Account!</button>
       </form>
-    </div>
+      <p>
+        <Link className='' to='/'>Home Page</Link>
+      </p>
+      <p>
+        <Link className='' to='/sign-in'>Already Have an Account? (Sign In)</Link>
+      </p>
+    </StyledSignupForm>
   )
 }
 

@@ -8,10 +8,9 @@ import SignIn from "./components/Sign-in";
 function App() {
   return (
     <div className="App">
-      <SignupForm/>
       <Switch>
         <Route path="/sign-in" component={SignIn} />
-        {/* <Route path="/signup" component={} /> */}
+        <Route path="/signup" component={SignupForm} />
         <Route path="/" component={Homepage} />
       </Switch>
     </div>
