@@ -80,7 +80,7 @@ function SignIn(props) {
   };
 
   return (
-    <div>
+    <div className="signIn">
       <p className="loginTitle">Log In</p>
       <form onSubmit={formSubmit}>
         <div className="loginForm">
