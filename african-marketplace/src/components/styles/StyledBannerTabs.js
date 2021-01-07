@@ -19,10 +19,9 @@ const StyledBannerTabs = styled.div`
 		align-items: flex-end;
 		justify-content: space-between;
 		border-bottom: solid 3px black;
-	}
-
-	.hero-image-container h3 {
-		margin-bottom: 0;
+		h3 {
+			margin-bottom: 0;
+		}
 	}
 `;
 
