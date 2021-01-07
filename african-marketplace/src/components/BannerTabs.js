@@ -1,7 +1,10 @@
 import React from "react";
+import { Route } from "react-router-dom";
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from "@reach/tabs";
 import "@reach/tabs/styles.css";
 import StyledBannerTabs from "./styles/StyledBannerTabs";
+
+import SignupForm from "./SignupForm/SignupForm";
 
 const BannerTabs = () => {
 	return (
@@ -28,7 +31,8 @@ const BannerTabs = () => {
 						<p>Strengthen Your Business</p>
 					</TabPanel>
 					<TabPanel>
-						<p>Edit Profile</p>
+						<p></p>
+						<SignupForm />
 					</TabPanel>
 				</TabPanels>
 			</Tabs>

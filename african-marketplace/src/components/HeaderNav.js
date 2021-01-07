@@ -8,6 +8,7 @@ import { fetchCurrentUser } from "../store/actions/currentUserActions";
 const HeaderNav = (props) => {
 	const { fetchCurrentUser, userState } = props;
 	const userData = userState.userData;
+	console.log("props", props);
 
 	useEffect(() => {
 		fetchCurrentUser();
@@ -15,7 +16,7 @@ const HeaderNav = (props) => {
 
 	return (
 		<StyledHeaderNav>
-			<header className="wrapper alt">
+			<header className="wrapper alt ">
 				<div className="headernav inner">
 					<h2>Welcome Back {userData.firstName}!</h2>
 					<div className="buttons">
