@@ -9,7 +9,6 @@ export default function AddItem() {
     salePrice: 0,
     quantity: 0,
     marketsSold: [],
-    user: {},
   };
 
   const catArr = [
@@ -174,6 +173,7 @@ export default function AddItem() {
             />
           </label>
         </div>
+        <button>Add Item</button>
       </form>
     </div>
   );
