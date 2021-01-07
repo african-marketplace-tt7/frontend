@@ -6,12 +6,15 @@ const StyledHeaderNav = styled.div`
 		justify-content: space-between;
 		align-items: center;
 
-		margin-left: 1rem;
-		margin-right: 1rem;
+		padding-left: 1rem;
+		padding-right: 1rem;
+		padding-top: 1rem;
 		h3,
 		.buttons {
 			margin-bottom: 1.8rem;
-			display: flex;
+		}
+		.buttons button {
+			margin-left: 1rem;
 		}
 	}
 `;

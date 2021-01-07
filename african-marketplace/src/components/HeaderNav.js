@@ -15,11 +15,13 @@ const HeaderNav = (props) => {
 
 	return (
 		<StyledHeaderNav>
-			<header className="headernav">
-				<h2>Welcome Back {userData.firstName}!</h2>
-				<div className="buttons">
-					<button className=" ">Home</button>
-					<button className="primary">Logout</button>
+			<header className="wrapper alt">
+				<div className="headernav inner">
+					<h2>Welcome Back {userData.firstName}!</h2>
+					<div className="buttons">
+						<button className=" ">Home</button>
+						<button className="primary">Logout</button>
+					</div>
 				</div>
 			</header>
 		</StyledHeaderNav>
