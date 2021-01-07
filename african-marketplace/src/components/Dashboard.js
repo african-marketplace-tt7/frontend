@@ -9,11 +9,13 @@ import { fetchCurrentUser } from "../store/actions/currentUserActions";
 // Components
 import HeaderNav from "./HeaderNav";
 import { Button } from "./Button";
+import BannerTabs from "./BannerTabs";
 
 const Dashboard = (props) => {
 	return (
 		<div>
 			<HeaderNav />
+			<BannerTabs />
 			<h1> this is app</h1>
 
 			{/* <Button title="Click me" type="primary" onClick={() => {

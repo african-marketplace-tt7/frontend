@@ -29,7 +29,7 @@ const displayName = {
 	password: "Password",
 	username: "Username",
 	preferredCurrency: "Preferred Currency",
-	primaryLanguage: "Preferred Currency",
+	primaryLanguage: "Preferred Language",
 };
 const validation = {
 	city: {
