@@ -1509,7 +1509,7 @@ ul.icons.major li {
 	-ms-transition: opacity 0.5s ease;
 	transition: opacity 0.5s ease;
 	opacity: 1;
-	padding-top: 2em;
+	/* padding-top: 2em; */
 }
 
 #page-wrapper:before {

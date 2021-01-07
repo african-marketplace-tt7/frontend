@@ -4,14 +4,15 @@ import StyledHeaderNav from "./styles/StyledHeaderNav";
 
 //Store
 import { fetchCurrentUser } from "../store/actions/currentUserActions";
+import { fetchAllMarkets } from "../store/actions/marketActions";
 
 const HeaderNav = (props) => {
-	const { fetchCurrentUser, userState } = props;
+	const { fetchCurrentUser, userState, fetchAllMarkets } = props;
 	const userData = userState.userData;
-	console.log("props", props);
 
 	useEffect(() => {
 		fetchCurrentUser();
+		fetchAllMarkets();
 	}, []);
 
 	return (
@@ -30,12 +31,13 @@ const HeaderNav = (props) => {
 };
 
 const mapStateToProps = (state) => {
-	console.log("state", state);
 	return {
 		userState: state.userReducer,
+		markets: state.marketsReducer,
 	};
 };
 
 export default connect(mapStateToProps, {
 	fetchCurrentUser,
+	fetchAllMarkets,
 })(HeaderNav);
