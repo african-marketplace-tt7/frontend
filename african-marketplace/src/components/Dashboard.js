@@ -1,22 +1,27 @@
 import "../assets/css/main.css";
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 
-//Store
+//Actions
 import { fetchCurrentUser } from "../store/actions/currentUserActions";
+import { fetchAllMarkets } from "../store/actions/marketActions";
 
 // Components
 import HeaderNav from "./HeaderNav";
 import { Button } from "./Button";
 import BannerTabs from "./BannerTabs";
 
-const Dashboard = (props) => {
+const Dashboard = ({ fetchCurrentUser, fetchAllMarkets }) => {
+	useEffect(() => {
+		fetchCurrentUser();
+		fetchAllMarkets();
+	}, []);
+
 	return (
-		<div>
+		<div id="page-wrapper">
 			<HeaderNav />
 			<BannerTabs />
-			<h1> this is app</h1>
 
 			{/* <Button title="Click me" type="primary" onClick={() => {
       console.log("Click")
@@ -33,10 +38,12 @@ const Dashboard = (props) => {
 
 const mapStateToProps = (state) => {
 	return {
-		currentUser: state.combineReducers,
+		currentUser: state.userReducer,
+		markets: state.marketsReducer,
 	};
 };
 
 export default connect(mapStateToProps, {
 	fetchCurrentUser,
+	fetchAllMarkets,
 })(Dashboard);

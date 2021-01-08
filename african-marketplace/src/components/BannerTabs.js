@@ -5,6 +5,7 @@ import "@reach/tabs/styles.css";
 import StyledBannerTabs from "./styles/StyledBannerTabs";
 
 import SignupForm from "./SignupForm/SignupForm";
+import MarketplaceTab from "./MarketplaceTab";
 
 const BannerTabs = () => {
 	return (
@@ -23,6 +24,7 @@ const BannerTabs = () => {
 				<TabPanels>
 					<TabPanel>
 						<p>Browse Marketplaces</p>
+						<MarketplaceTab />
 					</TabPanel>
 					<TabPanel>
 						<p>View Your Shop</p>
@@ -31,7 +33,6 @@ const BannerTabs = () => {
 						<p>Strengthen Your Business</p>
 					</TabPanel>
 					<TabPanel>
-						<p></p>
 						<SignupForm />
 					</TabPanel>
 				</TabPanels>

@@ -5,7 +5,7 @@ const StyledHeaderNav = styled.div`
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-
+		margin-left: 8%;
 		padding-left: 1rem;
 		padding-right: 1rem;
 		padding-top: 1rem;

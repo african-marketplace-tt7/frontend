@@ -759,6 +759,62 @@ input[type="radio"] + label:before {
 	opacity: 1;
 }
 
+/* Tab Section */
+.tab-section {
+	display: flex;
+}
+
+.tab-section section {
+	width: 15%;
+	padding: 4px;
+	border-top: 3px solid black;
+	border-right: 3px solid black;
+}
+
+.tab-section section select {
+	font-size: 10pt;
+}
+
+/* Card */
+
+.marketplace {
+	width: 90%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	/* align-content: space-around; */
+	align-items: stretch;
+}
+
+.market-card {
+	text-align: center;
+	width: 23%;
+	border: 2px solid #fff;
+	border-radius: 12px;
+	margin-top: 1rem;
+}
+
+.info-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.info-container h2 {
+	width: 100%;
+	margin-bottom: 0.5rem;
+	border-bottom: 2px solid #fff;
+}
+
+.info-container p {
+	margin-bottom: 0.2rem;
+}
+.info-container button {
+	width: 54%;
+	margin: 0.5rem 0;
+	border-radius: 25px;
+}
+
 /* Icon */
 
 .icon {
@@ -1509,7 +1565,7 @@ ul.icons.major li {
 	-ms-transition: opacity 0.5s ease;
 	transition: opacity 0.5s ease;
 	opacity: 1;
-	padding-top: 2em;
+	/* padding-top: 2em; */
 }
 
 #page-wrapper:before {
