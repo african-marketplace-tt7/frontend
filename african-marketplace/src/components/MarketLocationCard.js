@@ -1,13 +1,15 @@
-import React from 'react';
-
-export default function MarketLocationCard(props) {
-  const { name, street, city, country } = props.marketLocation;
-  return (
-    <div>
-      <h2>{name}</h2>
-      <p>{street}</p>
-      <p>{city}</p>
-      <p>{country}</p>
-    </div>
-  );
+import React from "react";
+export default function MarketLocationCard({ market }) {
+	const { name, street, city, country } = market;
+	return (
+		<div className="market-card">
+			<div className="info-container">
+				<h2>{name}</h2>
+				<p>{street}</p>
+				<p>{city}</p>
+				<p>{country}</p>
+				<button className="primary small">Add Market</button>
+			</div>
+		</div>
+	);
 }

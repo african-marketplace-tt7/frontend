@@ -12,7 +12,7 @@ const StyledBannerTabs = styled.div`
 		height: 10rem;
 		background-position: center;
 		background-repeat: no-repeat;
-		/* background-size: auto; */
+		background-size: cover;
 		position: relative;
 		display: flex;
 		padding: 0 10px;
