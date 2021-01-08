@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import axios from 'axios';
 
-export default function AddItem() {
+function AddItem(props) {
+  const { itemToEdit, userState } = props;
+  const { userData } = userState;
+
+  console.log(props);
+  console.log(userData);
+
   const initalFormValues = {
     commodityCat: '',
     subCat: '',
@@ -12,6 +20,7 @@ export default function AddItem() {
   };
 
   const catArr = [
+    '',
     'Animal Products',
     'Beans',
     'Cereals - Maize',
@@ -38,7 +47,7 @@ export default function AddItem() {
     'Pawpaw',
     'Pineapples',
   ];
-  const otherSub = ['Coffee', 'Tea', 'Tobacco', 'Vanilla'];
+  const otherSub = ['Coffee', 'Tea', 'Tobacco', 'Vanilla', 'Other'];
   const rootsAndTubersSub = ['Cassava', 'Potatoes'];
   const seedsAndNutsSub = ['Nuts', 'Simsim', 'Sunflowers'];
   const vegetablesSub = [
@@ -56,7 +65,9 @@ export default function AddItem() {
     'Tomatoes',
   ];
 
-  const [formValues, setForumValues] = useState(initalFormValues);
+  const [formValues, setForumValues] = useState(
+    itemToEdit ? itemToEdit : initalFormValues
+  );
 
   const getSubCat = category => {
     switch (category) {
@@ -93,16 +104,31 @@ export default function AddItem() {
           <option value={vegetable}>{vegetable}</option>
         ));
       default:
-        return <option>Error</option>;
+        return <option></option>;
     }
   };
 
   const handleChange = e => {
     setForumValues({ ...formValues, [e.target.name]: e.target.value });
   };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (itemToEdit) {
+      axios
+        .patch(
+          `https://african-marketplace-tt7.herokuapp.com/items/item/${itemToEdit.itemid}`,
+          formValues
+        )
+        .then(() => {})
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  };
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <label>
             Category:
@@ -146,7 +172,7 @@ export default function AddItem() {
             <input
               name='description'
               type='text'
-              value={formValues.commodityProduct}
+              value={formValues.description}
               onChange={handleChange}
             />
           </label>
@@ -175,6 +201,21 @@ export default function AddItem() {
         </div>
         <button>Add Item</button>
       </form>
+      <div>
+        Test Div
+        {console.log('Marketplaces', userState.userData.marketLocations)}
+        {userState.userData.marketLocations.map(marketLocation => {
+          <h2>{marketLocation.name}</h2>;
+        })}
+      </div>
     </div>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    userState: state.userReducer,
+  };
+};
+
+export default connect(mapStateToProps, {})(AddItem);

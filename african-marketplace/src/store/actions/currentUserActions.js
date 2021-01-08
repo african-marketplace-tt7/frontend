@@ -1,17 +1,30 @@
-import axios from "axios";
-import { axiosWithAuth } from "../../utils/axiosWithAuth";
+import axios from 'axios';
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
 
 export const fetchCurrentUser = () => {
-	return (dispatch) => {
-		dispatch({ type: "FETCH_CURRENTUSER_START" });
+  return dispatch => {
+    dispatch({ type: 'FETCH_CURRENTUSER_START' });
 
-		axiosWithAuth()
-			.get("/users/getuserinfo")
-			.then((res) => {
-				dispatch({ type: "FETCH_CURRENTUSER_SUCCESS", payload: res.data });
-			})
-			.catch((err) => {
-				dispatch({ type: "SET_ERROR", payload: err.message });
-			});
-	};
+    axiosWithAuth()
+      .get('/users/getuserinfo')
+      .then(res => {
+        dispatch({ type: 'FETCH_CURRENTUSER_SUCCESS', payload: res.data });
+      })
+      .catch(err => {
+        dispatch({ type: 'SET_ERROR', payload: err.message });
+      });
+  };
+};
+
+export const updateCurrentUser = (id, updatedUser) => {
+  return dispatch => {
+    axiosWithAuth()
+      .patch(`/users/user/${id}`, updatedUser)
+      .then(res => {
+        dispatch({ type: 'FETCH_CURRENTUSER_SUCCESS', payload: res.data });
+      })
+      .catch(err => {
+        dispatch({ type: 'SET_ERROR', payload: err.message });
+      });
+  };
 };
