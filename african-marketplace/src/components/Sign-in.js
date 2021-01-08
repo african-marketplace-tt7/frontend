@@ -104,7 +104,7 @@ function SignIn(props) {
 	return (
 		<StyledSignIn>
 			<p className="loginTitle">Log In</p>
-			<form onSubmit={formSubmit}>
+			<form className="signIn" onSubmit={formSubmit}>
 				<div className="loginForm">
 					<label htmlFor="username">
 						Username
