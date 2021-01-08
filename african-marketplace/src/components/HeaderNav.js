@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import StyledHeaderNav from "./styles/StyledHeaderNav";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
@@ -8,7 +9,8 @@ import { fetchCurrentUser } from "../store/actions/currentUserActions";
 import { fetchAllMarkets } from "../store/actions/marketActions";
 
 const HeaderNav = (props) => {
-	const { userState, history } = props;
+	const { userState } = props;
+	const history = useHistory();
 	const userData = userState.userData;
 
 	return (
@@ -22,16 +24,15 @@ const HeaderNav = (props) => {
 							className="primary"
 							onClick={(e) => {
 								e.preventDefault();
-								localStorage.removeItem("token");
-								history.push("/login");
-								// axiosWithAuth()
-								// 	.get("/oauth/revoke-token")
-								// 	.then((res) => {
-								// 		console.log(res);
-								// 	})
-								// 	.catch((err) => {
-								// 		console.log(err);
-								// 	});
+								axiosWithAuth()
+									.get("/logout")
+									.then((res) => {
+										localStorage.removeItem("token");
+										history.push("/login");
+									})
+									.catch((err) => {
+										console.log(err);
+									});
 							}}
 						>
 							Logout
