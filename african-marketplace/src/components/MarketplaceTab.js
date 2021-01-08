@@ -5,6 +5,7 @@ import MarketLocationCard from "./MarketLocationCard";
 
 const MarketplaceTab = (props) => {
 	const { marketLocations } = props.markets;
+	const { userMarkets } = props.userMarkets;
 
 	return (
 		<div className="tab-section">
@@ -15,8 +16,8 @@ const MarketplaceTab = (props) => {
 					<option value="">Your Markets</option>
 				</select>
 			</section>
-			{props.isLoading && <p>loading Marketplaces...</p>}
-			<div className="marketplace">
+			{props.markets.isLoading && <p>loading Marketplaces...</p>}
+			<div className="marketplace" datatype>
 				{marketLocations &&
 					marketLocations.map((market) => (
 						<MarketLocationCard market={market} />
@@ -29,6 +30,7 @@ const MarketplaceTab = (props) => {
 const mapStateToProps = (state) => {
 	return {
 		markets: state.marketsReducer,
+		userMarkets: state.userReducer,
 	};
 };
 
