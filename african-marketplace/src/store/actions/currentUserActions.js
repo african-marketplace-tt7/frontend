@@ -14,3 +14,22 @@ export const fetchCurrentUser = () => {
 			});
 	};
 };
+
+export const addSaleItem = (newItem) => {
+	return (dispatch) => {
+		dispatch({ type: "UPDATE_SALEITEMS_START" });
+
+		axiosWithAuth()
+			.post("/items/item", newItem)
+			.then((res) => {
+				console.log("response", res);
+				dispatch({
+					type: "UPDATE_SALEITEMS_SUCCESS",
+					payload: res.data.user.itemsForSale,
+				});
+			})
+			.catch((err) => {
+				dispatch({ type: "SET_ERROR", payload: err.message });
+			});
+	};
+};
