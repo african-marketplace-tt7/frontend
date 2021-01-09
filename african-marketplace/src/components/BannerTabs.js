@@ -6,6 +6,7 @@ import StyledBannerTabs from "./styles/StyledBannerTabs";
 
 import SignupForm from "./SignupForm/SignupForm";
 import MarketplaceTab from "./MarketplaceTab";
+import MyStoreTab from "./MyStoreTab";
 
 const BannerTabs = () => {
 	return (
@@ -28,6 +29,7 @@ const BannerTabs = () => {
 					</TabPanel>
 					<TabPanel>
 						<p>View Your Shop</p>
+						<MyStoreTab />
 					</TabPanel>
 					<TabPanel>
 						<p>Strengthen Your Business</p>

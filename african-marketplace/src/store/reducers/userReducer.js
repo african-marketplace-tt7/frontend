@@ -55,6 +55,17 @@ export const userReducer = (state = initialState, action) => {
 				isLoading: false,
 				userData: action.payload,
 			};
+		case "UPDATE_SALEITEMS_START":
+			return {
+				...state,
+				isLoading: true,
+			};
+		case "UPDATE_SALEITEMS_SUCCESS":
+			return {
+				...state,
+				isLoading: false,
+				userData: { ...state.userData, itemsForSale: action.payload },
+			};
 		case "SET_ERROR":
 			return {
 				...state,
