@@ -66,6 +66,22 @@ export const userReducer = (state = initialState, action) => {
 				isLoading: false,
 				userData: { ...state.userData, itemsForSale: action.payload },
 			};
+		case "DELETE_SALEITEM_START":
+			return {
+				...state,
+				isLoading: true,
+			};
+		case "DELETE_SALEITEM_SUCCESS":
+			return {
+				...state,
+				isLoading: false,
+				userData: {
+					...state.userData,
+					itemsForSale: state.userData.itemsForSale.filter(
+						(item) => item.itemid !== Number(action.payload)
+					),
+				},
+			};
 		case "SET_ERROR":
 			return {
 				...state,

@@ -33,3 +33,22 @@ export const addSaleItem = (newItem) => {
 			});
 	};
 };
+
+export const deleteSaleItem = (id) => {
+	return (dispatch) => {
+		dispatch({ type: "DELETE_SALEITEM_START" });
+
+		axiosWithAuth()
+			.delete(`/items/item/${id}`)
+			.then((res) => {
+				console.log("response", res);
+				dispatch({
+					type: "DELETE_SALEITEM_SUCCESS",
+					payload: id,
+				});
+			})
+			.catch((err) => {
+				dispatch({ type: "SET_ERROR", payload: err.message });
+			});
+	};
+};
